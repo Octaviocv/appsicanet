@@ -22,95 +22,97 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        //  mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            padding: EdgeInsets.all(30),
-            decoration: BoxDecoration(color: Colors.blueAccent, boxShadow: [
-              BoxShadow(
-                color: Colors.black12,
-                spreadRadius: 5,
-                blurRadius: 7,
-                offset: Offset(0, 1),
-              ) //
-            ]),
-            child: Column(
-              children: [
-                Text(
-                  'Verificando tu Número',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                      color: Colors.white),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Text(
-                  'Recibiras un mensaje de texto con el código de verificación',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-            child: Column(
-              children: [
-                TextField(
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                  controller: phonecontroller,
-                  maxLength: 10,
-                  keyboardType: TextInputType.phone,
-                  decoration: InputDecoration(
-                    labelText: 'Celular',
-                    prefix: Text('+52'),
-                    icon: Icon(Icons.phone_android),
+      body: SingleChildScrollView(
+        child: Column(
+          //  mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: EdgeInsets.all(30),
+              decoration: BoxDecoration(color: Colors.blueAccent, boxShadow: [
+                BoxShadow(
+                  color: Colors.black12,
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 1),
+                ) //
+              ]),
+              child: Column(
+                children: [
+                  Text(
+                    'Verificando tu Número',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        color: Colors.white),
                   ),
-                ),
-                RaisedButton(
-                  onPressed: () async {
-                    bool existe = await serviciousuario
-                        .existeNumCel('+52${phonecontroller.text}');
-                    if (existe) {
-                      requestCode('+52${phonecontroller.text}');
-                      print('EL CODIGO ES $codigosms');
-                    } else {
-                      //showSnackBar();
-                      // Navigator.pushNamed(context, 'registro');
-                      print("No existe");
-                    }
-                  },
-                  child: Text('Continuar'),
-                ),
-              ],
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    'Recibiras un mensaje de texto con el código de verificación',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: codigosms != null
-                  ? Column(
-                      children: [
-                        TextField(
-                          controller: codecontroller,
-                          maxLength: 10,
-                          keyboardType: TextInputType.number,
-                          decoration: InputDecoration(
-                            labelText: 'codigo',
-                            icon: Icon(Icons.phone_android),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+              child: Column(
+                children: [
+                  TextField(
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                    controller: phonecontroller,
+                    maxLength: 10,
+                    keyboardType: TextInputType.phone,
+                    decoration: InputDecoration(
+                      labelText: 'Celular',
+                      prefix: Text('+52'),
+                      icon: Icon(Icons.phone_android),
+                    ),
+                  ),
+                  RaisedButton(
+                    onPressed: () async {
+                      bool existe = await serviciousuario
+                          .existeNumCel('+52${phonecontroller.text}');
+                      if (existe) {
+                        requestCode('+52${phonecontroller.text}');
+                        print('EL CODIGO ES $codigosms');
+                      } else {
+                        //showSnackBar();
+                        // Navigator.pushNamed(context, 'registro');
+                        print("No existe");
+                      }
+                    },
+                    child: Text('Continuar'),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: codigosms != null
+                    ? Column(
+                        children: [
+                          TextField(
+                            controller: codecontroller,
+                            maxLength: 10,
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                              labelText: 'codigo',
+                              icon: Icon(Icons.phone_android),
+                            ),
                           ),
-                        ),
-                        RaisedButton(
-                          onPressed: () async {
-                            singInCode(codecontroller.text, codigosms);
-                          },
-                          child: Text('Login'),
-                        ),
-                      ],
-                    )
-                  : Text('ss')),
-        ],
+                          RaisedButton(
+                            onPressed: () async {
+                              singInCode(codecontroller.text, codigosms);
+                            },
+                            child: Text('Login'),
+                          ),
+                        ],
+                      )
+                    : Text('ss')),
+          ],
+        ),
       ),
     );
   }
