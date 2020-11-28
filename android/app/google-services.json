@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "475075179844",
+    "firebase_url": "https://appsicanet.firebaseio.com",
+    "project_id": "appsicanet",
+    "storage_bucket": "appsicanet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475075179844:android:98c251c86a241fd4219311",
+        "android_client_info": {
+          "package_name": "com.sicanet.appsicanet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "475075179844-orl8fk6lb3q5mfafnollcs7e9m4lf115.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sicanet.appsicanet",
+            "certificate_hash": "ae089c525271bd87f8bdda9e98bd981ce4dae49e"
+          }
+        },
+        {
+          "client_id": "475075179844-r4vb05fa1hc4g55bl5khvcnu0ocb43m7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKRfkNNOYCY1ZWOSgGjlUQBMZLv9Ik5sk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "475075179844-r4vb05fa1hc4g55bl5khvcnu0ocb43m7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
