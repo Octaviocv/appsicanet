@@ -12,14 +12,14 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      goToHome();
+      goToLogin();
     });
     super.initState();
   }
 
-  void goToHome() {
+  void goToLogin() {
     Future.delayed(
-        Duration(seconds: 5), () => Navigator.pushNamed(context, 'home'));
+        Duration(seconds: 5), () => Navigator.pushNamed(context, 'login'));
   }
 
   @override

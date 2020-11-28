@@ -15,9 +15,7 @@ class _HomePageState extends State<HomePage> {
         title: Text('Bienvenido '),
       ),
       body: Center(
-        child: TextField(
-          decoration: InputDecoration(hintText: 'Numero'),
-        ),
+        child: Text('Bienvenido pantalla de inicio'),
       ),
     );
   }
